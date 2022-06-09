@@ -5,7 +5,7 @@ import javax.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
-public class IndexForm {
+public class RegisterForm {
     
     @NotBlank
     private String id;
@@ -13,6 +13,7 @@ public class IndexForm {
     @NotBlank
     private String pass;
     
+    @NotBlank
     private String name;
     
     public String getId() {
@@ -41,4 +42,3 @@ public class IndexForm {
     
     
 }
-

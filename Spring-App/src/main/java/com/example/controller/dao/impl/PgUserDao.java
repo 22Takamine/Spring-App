@@ -18,7 +18,7 @@ public class PgUserDao implements UserDao {
 	private static final String SELECT_BY_USER_ALL = "SELECT * FROM users ORDER BY id";
     private static final String SELECT_BY_USER_ID = "SELECT * FROM users WHERE login_id = :id ORDER BY id";
     private static final String SELECT_BY_USER_ID_AND_PASS = "SELECT * FROM users WHERE login_id = :id AND password = :pass ORDER BY id";
-    private static final String INSERT = "INSERT INTO users (login_id, password, name) VALUES (:id, :pass, :name)";
+    private static final String INSERT = "INSERT INTO users (login_id, password, name, role) VALUES (:id, :pass, :name, 2)";
     private static final String DELETE = "DELETE FROM users WHERE login_id = :id";
     private static final String UPDATE = "UPDATE users SET login_name = :id, password = :pass, name = :name WHERE id = :id";
     

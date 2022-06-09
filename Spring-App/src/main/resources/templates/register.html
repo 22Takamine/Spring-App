@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>新規登録</title>
+</head>
+<body class="login_body">
+	<div class="header">
+    	<h1 class="site_logo">名刺管理システム</h1>
+  	</div>
+    
+    <fieldset>
+    	<h2>新規登録</h2>
+		<form th:action="@{/register}" th:object="${index}" method="post">
+			<div th:if="${msg} != null">
+				<span th:text="${msg}"></span>
+			</div>
+		
+			ユーザーID:<input type="text" th:field="*{id}">
+			<span class="errorStr" th:errors="*{id}"></span><br>
+			
+			パスワード:<input type="password" th:field="*{pass}">
+			<span class="errorStr" th:errors="*{pass}"></span><br>
+			
+			名前:<input type="text" th:field="*{name}">
+			<span class="errorStr" th:errors="*{name}"></span><br>
+			
+			<input type="submit" value="登録">
+			
+		</form>
+		
+		<form th:action="@{/index}" th:object="${index}" method="post">
+			<input type="submit" value="戻る">
+		</form>
+		
+	</fieldset>
+	<span th:text="${id}"></span>
+	<span th:text="${pass}"></span>
+
+</body>
+</html>

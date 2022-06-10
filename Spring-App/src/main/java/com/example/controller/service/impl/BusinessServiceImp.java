@@ -25,12 +25,16 @@ public class BusinessServiceImp implements BusinessService {
         return businessDao.findById(id);
     }
     
-    public List<Business> findByName(String name) {
+    public Business findByName(String name) {
         return businessDao.findByName(name);
     }
     
     public List<Business> findByCompany(String company) {
         return businessDao.findByCompany(company);
+    }
+    
+    public List<Business> findByNameOrCompany(String keyword) {
+        return businessDao.findByNameOrCompany(keyword);
     }
     
     public void insert(String name, String readName, String company, String department, String position, String mail, String tell, String image, String memo) {
@@ -41,7 +45,7 @@ public class BusinessServiceImp implements BusinessService {
         businessDao.delete(id);
     }
     
-    public void update(String name, String readName, String company, String department, String position, String mail, String tell, String image, String memo) {
-        businessDao.update(name, readName, company, department, position, mail, tell, image, memo);
+    public void update(String name, String readName, String company, String department, String position, String mail, String tell, String image, String memo, Integer id) {
+        businessDao.update(name, readName, company, department, position, mail, tell, image, memo, id);
     }
 }

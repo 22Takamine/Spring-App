@@ -21,50 +21,55 @@
     <div class="form_body">
       <p class="error" th:text="${errorMsg}"></p>
   
-      <form action="insert" method="post" th:object="${productForm}">
+      <form action="/insertDate" method="post" th:object="${index}">
         <fieldset class="label-130">
           <div>
-            <label class="required">商品ID</label>
-            <input type="text" th:field="*{productId}" class="base-text">
-            <span class="error" th:each="error: ${#fields.errors('productId')}">
+            <label class="required">会社名</label>
+            <input type="text" th:field="*{company}" class="base-text">
+            <span class="error" th:each="error: ${#fields.errors('company')}">
             	[[ ${error} ]]
             </span>
           </div>
           <div>
-            <label class="required">商品名</label>
+            <label class=>部署</label>
+            <input type="text" th:field="*{department}" class="base-text">
+          </div>
+          <div>
+            <label>役職</label>
+            <input type="text" th:field="*{position}" class="base-text">
+          </div>
+          <div>
+            <label class="required">名前</label>
             <input type="text" th:field="*{name}" class="base-text">
             <span class="error" th:each="error: ${#fields.errors('name')}">
             	[[ ${error} ]]
             </span>
           </div>
           <div>
-            <label class="required">単価</label>
-            <input type="text" th:field="*{price}" class="base-text">
-            <span class="error" th:each="error: ${#fields.errors('price')}">
-            	[[ ${error} ]]
-            </span>
-          </div>
-          <div class="select_block">
-            <label class="required">カテゴリ</label>
-            <select th:field="*{categoryId}" class="base-text">
-              <option th:each="category : ${categoryList}" 
-              th:value="${category.id}" th:text="${category.name}">
-              </option>
-            </select>
+            <label>ふりがな</label>
+            <input type="text" th:field="*{read_name}" class="base-text">
           </div>
           <div>
-            <label>商品説明</label>
-            <textarea th:field="*{description}" class="base-text"></textarea>
+            <label>メールアドレス</label>
+            <input type="text" th:field="*{mail}" class="base-text">
+          </div>
+          <div>
+            <label>電話番号</label>
+            <input type="text" th:field="*{tell}" class="base-text">
+          </div>
+          <div>
+            <label>メモ</label>
+            <textarea th:field="*{memo}" class="base-text"></textarea>
           </div>
           <div>
             <label>画像</label>
-            <input type="file" name="file">
+            <input type="file" name="image">
             <span class="error">エラーメッセージ</span>
           </div>
         </fieldset>
         <div class="btns">
           <button type="button" onclick="openModal()" class="basic_btn">登録</button>
-          <input type="button" onclick="location.href='/menu'" value="戻る" class="cancel_btn">
+          <input type="button" onclick="location.href='/back'" value="戻る" class="cancel_btn">
         </div>
         <div id="modal">
           <p class="modal_message">登録しますか？</p>

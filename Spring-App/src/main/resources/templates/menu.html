@@ -21,7 +21,7 @@
     </form>
 
     <table>
-        <div class="caption"><p>検索結果：10件</p></div>
+        <div class="caption"><p th:text="'検索結果:' + ${businessCard.size()} + '件'"></div>
         <div class="order">
           <select class="base-text" v-model="selected" @change="selectedOrdrBy">
             <option>並び替え</option>
@@ -40,12 +40,12 @@
         </tr>
       </thead>
       <tbody>
-          <tr th:each="product : ${productList}">
-            <td>[[ ${product.productId} ]]</td>
-            <td>[[ ${product.name} ]]</td>
-            <td>[[ ${product.price} ]]</td>
-            <td>[[ ${product.category.name} ]]</td>
-            <td><a class="detail_btn" th:href="|/detail/${product.id}|">詳細</a></td>
+          <tr th:each="business : ${businessCard}">
+            <td>[[ ${business.company} ]]</td>
+            <td>[[ ${business.position} ]]</td>
+            <td>[[ ${business.department} ]]</td>
+            <td>[[ ${business.name} ]]</td>
+            <td><a class="detail_btn" th:href="|/detail/${business.id}|">詳細</a></td>
           </tr>
       </tbody>
     </table>

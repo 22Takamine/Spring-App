@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>商品詳細</title>
+<link href="/css/commons.css" rel="stylesheet">
+</head>
+<body>
+	<div class="header">
+    	<h1 class="site_logo">名刺管理システム</h1>
+  	</div>
+
+  <div class="update">
+    <div class="form_body">
+      <div class="img_block">
+        <img th:src="@{${'/images/' + businessCard.image}}" class="product_img"><br>
+      </div>
+      <form action="/update" method="post">
+      <input type="hidden" name="id" th:value="${businessCard}">
+        <fieldset class="label-130 product_block">
+          <p class="error">エラーメッセージ</p>
+          <div th:each="business : ${businessCard}">
+          <div>
+            <label>会社名</label>
+            <input type="text" name="company" th:value="${business.company}" readonly class="base-text">
+          </div>
+          <div>
+            <label>部署</label>
+            <input type="text" name="department" th:value="${business.department}" readonly class="base-text">
+          </div>
+          <div>
+            <label>役職</label>
+            <input type="text" name="position" th:value="${business.position}" readonly class="base-text">
+          </div>
+          <div>
+            <label>名前</label>
+            <input type="text" name="name" th:value="${business.name}" readonly class="base-text">
+          </div>
+          <div>
+            <label>ふりがな</label>
+            <input type="text" name="readName" th:value="${business.readName}" readonly class="base-text">
+          </div>
+          <div>
+            <label>メールアドレス</label>
+            <input type="text" name="mail" th:value="${business.mail}" readonly class="base-text">
+          </div>
+          <div>
+            <label>電話番号</label>
+            <input type="text" name="tell" th:value="${business.tell}" readonly class="base-text">
+          </div>
+          <div>
+            <label>メモ</label>
+            <textarea name="memo"th:text="${business.memo}" readonly class="base-text" style="background-color: rgb(209, 209, 209);">
+            </textarea>
+          </div>
+          </div>
+        </fieldset>
+        <div>
+          <div class="btns">
+            <input type="button" onclick="openModal()" value="削除" class="basic_btn">
+            <input type="button" th:onclick="|location.href='/updateInput/${businessCard.id}'|" value="編集" class="basic_btn">
+            <input type="button" onclick="location.href='/back'" value="戻る" class="cancel_btn">
+          </div>
+          <div id="modal">
+            <p class="modal_message">削除しますか？</p>
+            <div class="btns">
+<!--               <input type="submit" name="delete" class="basic_btn" value="削除"> -->
+              <a class="basic_btn" th:href="|/delete/${businessCard.id}|">削除</a>
+              <button type="button" onclick="closeModal()" class="cancel_btn">キャンセル</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div id="fadeLayer"></div>
+</body>
+</html>
+<script src="/js/commons.js"></script>

@@ -32,6 +32,13 @@ public class Business {
 	    this.roleId = roleId;
 	}
 
+	public Integer getId() {
+	    return id;
+	}
+
+	public void setId(Integer id) {
+	    this.id = id;
+	}
 	
 	public String getName() {
 	    return name;
@@ -93,6 +100,10 @@ public class Business {
 	    return image;
 	}
 	
+	public void setImage(String image) {
+	    this.image = image;
+	}
+	
 	public void setMemo(String memo) {
 	    this.memo = memo;
 	}
@@ -101,9 +112,7 @@ public class Business {
 	    return memo;
 	}
 
-	public void setImage(String image) {
-	    this.image = image;
-	}
+	
 
 	public Integer getRoleId() {
 	    return roleId;

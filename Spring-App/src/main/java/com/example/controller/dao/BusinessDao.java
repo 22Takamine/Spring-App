@@ -8,10 +8,11 @@ public interface BusinessDao {
 
 	public List<Business> findAll();
     public Business findById(Integer id);
-    public List<Business> findByName(String name);
+    public Business findByName(String name);
     public List<Business> findByCompany(String company);
+    public List<Business> findByNameOrCompany(String keyword);
     public void insert(String name, String readName, String company, String department, String position, String mail, String tell, String image, String memo);
     public void delete(Integer id);
-    public void update(String name, String readName, String company, String department, String position, String mail, String tell, String image, String memo);
+    public void update(String name, String readName, String company, String department, String position, String mail, String tell, String image, String memo, Integer id);
 
 }
